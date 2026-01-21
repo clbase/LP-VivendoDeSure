@@ -115,8 +115,13 @@
             position: absolute;
             inset: 0;
             z-index: 0;
-            /* Diagonal Split Background */
-            background: linear-gradient(105deg, var(--bg-primary) 0%, var(--bg-primary) 45%, var(--bg-card) 45.1%, var(--bg-card) 100%);
+            /* Smooth Diagonal Gradient Transition */
+            background: linear-gradient(105deg,
+                    var(--bg-primary) 0%,
+                    var(--bg-primary) 40%,
+                    rgba(157, 0, 255, 0.08) 45%,
+                    var(--bg-card) 50%,
+                    var(--bg-card) 100%);
         }
 
         .free-bg::before {
@@ -128,29 +133,26 @@
             pointer-events: none;
         }
 
-        /* Diagonal Line Accent */
+        /* Glowing Diagonal Accent Line */
         .free-bg::after {
             content: '';
             position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 45%;
-            width: 2px;
-            background: var(--accent-primary);
+            top: -10%;
+            bottom: -10%;
+            left: 44%;
+            width: 3px;
+            background: linear-gradient(to bottom,
+                    transparent 0%,
+                    var(--accent-primary) 30%,
+                    var(--accent-secondary) 50%,
+                    var(--accent-primary) 70%,
+                    transparent 100%);
             transform: skewX(-15deg);
-            /* Match the gradient angle roughly if needed, or stick to linear-gradient edge */
-            /* Actually, relying on the gradient hard stop is cleaner. Adding a border line: */
-            background: linear-gradient(to bottom, transparent, var(--accent-primary), transparent);
-            width: 1px;
-            left: 45%;
-            transform-origin: bottom;
-            transform: skewX(-15deg);
-            /* This needs to be precise to match gradient */
-            display: none;
-            /* Removing separate line for now, sticking to clean cut */
+            filter: blur(1px);
+            opacity: 0.6;
+            box-shadow: 0 0 15px var(--accent-glow), 0 0 30px var(--accent-glow);
         }
 
-        /* Better Diagonal Border using a pseudo element on the content container if needed, or just the gradient */
 
         /* Floating Particles */
         .particles {
@@ -575,7 +577,7 @@
                     </div>
 
                     <div style="margin-bottom: 10px;">
-                        <span class="section-tag">100% GRATUITO</span>
+                        <span class="section-tag">🎁 100% GRATUITO</span>
                     </div>
 
                     <h1 class="free-title">
@@ -584,9 +586,11 @@
                     </h1>
 
                     <p class="free-description">
-                        Sua entrada liberada para o grupo onde entregamos <strong>estratégias que funcionam</strong>,
-                        análises em tempo real e técnicas para converter seu conhecimento em <strong>ganhos
-                            concretos</strong>.
+                        <strong style="color: #25D366;">Sem nenhum custo!</strong> Sua entrada liberada para o grupo
+                        onde entregamos
+                        <strong>estratégias que funcionam</strong>, análises em tempo real e técnicas para converter
+                        seu conhecimento em <strong>ganhos concretos</strong>. Tudo isso <strong
+                            style="color: #25D366;">de graça</strong>.
                     </p>
 
                     <!-- Features -->
@@ -613,7 +617,23 @@
                                     <path d="M5 13l4 4L19 7" />
                                 </svg>
                             </span>
-                            <span>Resultados consistentes e validados</span>
+                            <span>Entradas de surebet diárias gratuitas</span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <path d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            <span><strong>Sem custo algum para participar — é grátis!</strong></span>
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-icon" style="background: linear-gradient(135deg, #25D366, #128C7E);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <path d="M5 13l4 4L19 7" />
+                                </svg>
+                            </span>
+                            <span><strong>Sem taxa de adesão ou mensalidade</strong></span>
                         </li>
                     </ul>
 
